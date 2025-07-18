@@ -1,18 +1,45 @@
-# Salesforce DX Project: Next Steps
+# 🧠 Salesforce Lead Auto-Assignment Project
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+This Salesforce project demonstrates automatic lead owner assignment based on Lead Source using:
 
-## How Do You Plan to Deploy Your Changes?
+- ⚙️ Apex Triggers & Handler Pattern
+- 📊 Custom Metadata Types (CMDT)
+- ✅ Test Class (90%+ Coverage)
+- 🧪 Developer Org Deployment
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## 🔧 Functionality
 
-## Configure Your Salesforce DX Project
+Whenever a Lead is created:
+- If the `LeadSource` is matched in Custom Metadata, it auto-assigns to the mapped user.
+- If not matched, assigns to a fallback user or throws an error.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+## 📁 Files
 
-## Read All About It
+- `LeadAssignmentHandler.cls`: Logic to assign lead owner.
+- `LeadTrigger.trigger`: Trigger calling the handler.
+- `LeadAssignmentTest.cls`: Unit test class.
+- `LeadSourceAssignment__mdt`: CMDT for dynamic mapping.
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+## 🚀 Setup
+
+1. [Sign up for a free Salesforce Developer Org](https://developer.salesforce.com/signup)
+2. Add Custom Metadata: `LeadSourceAssignment__mdt`
+3. Deploy this project using SFDX or VS Code Extension
+4. Create Leads via UI or anonymous Apex and test assignments
+
+## 🧪 Sample CMDT Values
+
+| Lead Source | User ID |
+|-------------|------------------------|
+| Web | 005XXXXXXXXXXXXXXX |
+| Referral | 005YYYYYYYYYYYYYYY |
+
+<!-- ## 📸 Demo -->
+
+<!-- ![Demo Screenshot](demo.png) -->
+
+## 💬 Author
+
+Shruti Pandey  
+Salesforce Developer | Deloitte USI
+[LinkedIn](https://www.linkedin.com/in/shruti-pandey16)
